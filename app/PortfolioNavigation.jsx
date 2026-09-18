@@ -6,8 +6,7 @@ const items = [
     { label: '关于我', ariaLabel: '了解我的背景', href: '#/about' }
   ] },
   { label: '作品', bgColor: '#2F293A', textColor: '#fff', links: [
-    { label: '全部项目', ariaLabel: '浏览全部项目', href: '#/works/all' },
-    { label: '作品分类', ariaLabel: '按类别浏览作品', href: '#/works' }
+    { label: '全部项目', ariaLabel: '浏览全部项目', href: '#/works' }
   ] },
   { label: '联系', bgColor: '#2F293A', textColor: '#fff', links: [
     { label: '联系我', ariaLabel: '查看联系方式', href: '#/contact' }
