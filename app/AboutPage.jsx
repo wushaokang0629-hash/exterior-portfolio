@@ -7,6 +7,7 @@ export default function AboutPage({ contactOnly = false }) {
         <p className="profile-kicker">{contactOnly ? 'GET IN TOUCH' : 'ABOUT ME'} <span> / SHAOKANG</span></p>
         <h1>{contactOnly ? '让想法，\n成为风景。'.split('\n').map((s,i)=><span key={i}>{s}</span>) : <>吴少康<span className="profile-english">WU SHAOKANG</span></>}</h1>
         <p className="profile-role">景观设计师 <span>LANDSCAPE DESIGNER</span></p>
+        <figure className="profile-portrait"><img src="./portrait-wushaokang.png" alt="吴少康个人肖像" width="1760" height="2352" /></figure>
         <p className="profile-statement">以方案推敲塑造空间，<br/>以视觉表达呈现设计。</p>
         <p className="profile-summary">自 2019 年进入景观设计行业，工作涵盖方案设计、深化推敲及空间可视化。擅长结合三维模型检验空间关系，通过建模、渲染与后期表达，让设计意图更加清晰、直观。</p>
         <div className="profile-tags"><span>方案设计</span><span>模型推敲</span><span>视觉表达</span></div>
