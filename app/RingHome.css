@@ -2,3 +2,7 @@
 
 /* Orbit the camera around the ring centre during the overhead entrance. */
 .ring-home{min-height:640px}.ring-camera{transform-origin:0 0 calc(var(--ring-radius) * -1)}.ring-home[data-intro='playing'] .ring-card{backface-visibility:visible;opacity:.8!important;filter:brightness(.8)!important}@media(max-width:600px){.ring-home{min-height:650px}}
+
+/* Five front-facing portrait cards, with progressively turned outer cards. */
+.ring-card{aspect-ratio:3/4;top:calc(var(--ring-card-width) * -2 / 3);border-radius:20px}.ring-stage{perspective:2400px}.ring-card-caption{padding-bottom:24px}@media(max-width:600px){.ring-stage{perspective:1200px}.ring-card{border-radius:9px}.ring-card-caption{padding:20px 5px 10px}.ring-card-caption h2{font-size:11px}.ring-card-caption>span{font-size:8px}}
+.ring-controls{bottom:9%}@media(max-width:600px){.ring-controls{bottom:16%}}
