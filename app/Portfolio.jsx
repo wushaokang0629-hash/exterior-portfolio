@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import RingHome from './RingHome';
+import AboutPage from './AboutPage';
 import GlowCursor from '../components/react-bits/GlowCursor';
 import PortfolioNavigation from './PortfolioNavigation';
 import InfiniteSpiral from '../components/react-bits/InfiniteSpiral';
@@ -27,6 +28,6 @@ export default function Portfolio() {
     {route==='/' ? <RingHome/>
     : parts[0]==='works' && parts.length<3 ? <main className="spiral-works"><div className="spiral-heading"><a className="back-link" href="#/">← 首页</a><h1>全部作品</h1><p>{projects.length} 个项目 · 拖动浏览，点击进入</p></div><div className="spiral-canvas"><InfiniteSpiral items={spiralItems} animationMode="all" speed={0.55} radius={170} cardWidth={100} cardHeight={100} verticalSpacing={60} perspective={1000} cardRadius={10} centerScale={1.2} edgeBlur={6} cardsPerTurn={7} pauseOnHover /></div></main>
     : parts[0]==='works' && parts.length===3 ? <main className="detail-page"><a className="back-link" href="#/works">← 全部作品</a><p className="eyebrow">PROJECT PREVIEW / 04</p><h1>{project.title}</h1><div className="project-carousel"><DepthCarousel key={project.id} items={project.images} cardWidth={660} cardHeight={420} depth={220} spread={90} tilt={22} tiltDirection="right" perspective={1400} visibleCards={4} falloff={0.2} blur={6} autoplay loop/></div><p className="muted">{project.images.length} 张效果图</p></main>
-    : <main className="info-page"><a className="back-link" href="#/">← 首页</a><p className="eyebrow">{parts[0]==='about'?'ABOUT':'CONTACT'}</p><h1>{parts[0]==='about'?'关于我':'联系我'}</h1><p className="muted">{parts[0]==='about'?'个人介绍与工作经历将在这里补充。':'联系方式将在这里补充。'}</p></main>}
+    : <AboutPage contactOnly={parts[0]!=='about'}/>}
   </div></GlowCursor>;
 }
