@@ -28,7 +28,6 @@ export default function RingHome(){
  const move=d=>{const m=motion.current;m.target=Math.round(m.target/step)*step+d*step;};
  const release=e=>{const m=motion.current;if(m.dragging&&m.distance>6&&e.currentTarget.hasPointerCapture(e.pointerId))e.currentTarget.releasePointerCapture(e.pointerId);m.dragging=false;};
  return <main className="ring-home" ref={root}>
-  <nav className="ring-home-nav" aria-label="首页导航"><a href="#/works">作品</a><a href="#/about">关于</a><a href="#/contact">联系</a></nav>
   <div className="ring-home-copy"><p>ARCHITECTURAL &amp; LANDSCAPE VISUALIZATION</p><h1>以光影，<br/>呈现空间。</h1></div>
   <section className="ring-stage" aria-label="精选作品环形画廊" onPointerEnter={()=>{motion.current.paused=true;}} onPointerLeave={()=>{motion.current.paused=false;motion.current.dragging=false;}} onFocusCapture={()=>{motion.current.paused=true;}} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))motion.current.paused=false;}}
    onWheel={e=>{if(!ready)return;motion.current.target-=Math.max(-100,Math.min(100,e.deltaX||e.deltaY))*.08;}} onPointerDown={e=>{if(!ready||e.button!==0)return;Object.assign(motion.current,{dragging:true,lastX:e.clientX,distance:0});}}
