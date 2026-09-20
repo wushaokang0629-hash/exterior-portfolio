@@ -2,6 +2,7 @@
 
 .project-carousel{height:500px;position:relative}.project-carousel .depth-carousel__img{max-height:none;background:transparent}.detail-page h1{margin-bottom:10px}@media(max-width:600px){.project-carousel{height:450px}}
 .project-description{max-width:680px;margin:0 0 22px;color:#b8aec5;font-size:14px;line-height:1.8}
+.detail-page--stack{padding-bottom:0}.detail-intro{min-height:calc(58svh - 120px);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding-bottom:7vh}.detail-page--stack .detail-intro h1{margin-bottom:12px}.detail-page--stack .detail-intro .back-link{margin-bottom:auto}.detail-page--stack>.scroll-stack{margin-left:-8vw;width:100vw}.detail-page--stack .muted{margin:0}@media(max-width:600px){.detail-intro{min-height:calc(52svh - 105px);padding-bottom:5vh}.detail-page--stack>.scroll-stack{margin-left:-6vw}}
 
 /* Keep the glow above opaque galleries and navigation without intercepting input. */
 .portfolio-cursor.glow-cursor{height:auto;min-height:100svh;overflow:clip}.portfolio-cursor>.glow-cursor__canvas{z-index:60;pointer-events:none}.portfolio-cursor>.glow-cursor__content{height:auto;min-height:100svh}

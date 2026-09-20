@@ -7,7 +7,7 @@ import PortfolioNavigation from './PortfolioNavigation';
 import InfiniteSpiral from '../components/react-bits/InfiniteSpiral';
 import './SpiralWorks.css';
 
-import DepthCarousel from '../components/react-bits/DepthCarousel';
+import ScrollStack from '../components/react-bits/ScrollStack';
 import { projects } from './portfolio-data';
 
 const spiralItems = projects.map(p => ({ id:p.id, src:p.image, alt:p.title, label:p.title, href:`#/works/${p.category}/${p.id}` }));
@@ -26,7 +26,7 @@ export default function Portfolio() {
     <PortfolioNavigation route={route}/>
     {route==='/' ? <RingHome/>
     : parts[0]==='works' && parts.length<3 ? <main className="spiral-works"><div className="spiral-heading"><a className="back-link" href="#/">← 首页</a><h1>全部作品</h1><p>{projects.length} 个项目 · 自动浏览 · 拖动切换 · 点击进入</p></div><div className="spiral-canvas"><InfiniteSpiral items={spiralItems} animationMode="all" speed={0.55} radius={170} cardWidth={100} cardHeight={100} verticalSpacing={60} perspective={1000} cardRadius={10} centerScale={1.2} edgeBlur={6} cardsPerTurn={7} pauseOnHover={false} /></div></main>
-    : parts[0]==='works' && parts.length===3 ? <main className="detail-page"><a className="back-link" href="#/works">← 全部作品</a><p className="eyebrow">PROJECT PREVIEW / 04</p><h1>{project.title}</h1>{project.description && <p className="project-description">{project.description}</p>}<div className="project-carousel"><DepthCarousel key={project.id} items={project.images} cardWidth={660} cardHeight={420} depth={220} spread={90} tilt={22} tiltDirection="right" perspective={1400} visibleCards={4} falloff={0.2} blur={6} autoplay loop/></div><p className="muted">{project.images.length} 张效果图</p></main>
+    : parts[0]==='works' && parts.length===3 ? <main className="detail-page detail-page--stack"><div className="detail-intro"><a className="back-link" href="#/works">← 全部作品</a><p className="eyebrow">PROJECT / {String(project.images.length).padStart(2,'0')} IMAGES</p><h1>{project.title}</h1>{project.description && <p className="project-description">{project.description}</p>}<p className="muted">向下滚动，逐张浏览项目效果图</p></div><ScrollStack key={project.id} items={project.images.map((image,index)=>({ ...image, eyebrow:`${project.title} · IMAGE ${String(index+1).padStart(2,'0')}`, title:project.title, body:`第 ${index+1} 张 / 共 ${project.images.length} 张`, accent:['#7cff67','#B497CF','#5227FF'][index%3] }))}/></main>
     : <AboutPage contactOnly={parts[0]!=='about'}/>}
   </div></GlowCursor>;
 }
